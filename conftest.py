@@ -1,6 +1,8 @@
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 import pytest
+import time
+import random, string
 
 @pytest.fixture
 def app_languages():
@@ -35,4 +37,17 @@ def browser(request, app_languages):
 @pytest.fixture
 def user_language(request):
     return request.config.getoption("language")
+
+@pytest.fixture
+def email():
+    return str(time.time()) + "@fakemail.org"
+
+@pytest.fixture
+def password():
+    characters = list(string.ascii_letters + string.digits + "!@#$%^&*()")
+    random.shuffle(characters)
+    password = []
+    for i in range(11):
+        password.append(random.choice(characters))
+    return ''.join(password)
     
