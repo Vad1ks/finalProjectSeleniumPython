@@ -3,6 +3,10 @@ from selenium.webdriver.common.by import By
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inv")
+    BASKET = (By.XPATH, "//a[contains(@href, 'basket')]")
+
+class BasketPageLocators():
+    CONTENT_INNER = (By.CSS_SELECTOR, "#content_inner")
 
 class LoginPageLocators():
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
